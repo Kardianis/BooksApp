@@ -37,12 +37,12 @@
       /* generate HTML from template */
 
       const generatedHTML = bookTemplate(book);
-      console.log('generatedHTML: ', generatedHTML);
+
 
       /* create DOM element */
 
       thisBooksList.element = utils.createDOMFromHTML(generatedHTML);
-      console.log('thisBooksList.element: ', thisBooksList.element);
+
 
       /* find container of books*/
 
@@ -54,29 +54,19 @@
 
     }
   }
-
-  /*function getElements() {
-    const thisBooksList = this;
-
-    thisBooksList.booksList = document.querySelector(select.containerOf.booksList);
-
-  }*/
+  
   const favoriteBooks = [];
   const filters = [];
   function initActions() {
 
-    const booksImages = document.querySelectorAll(select.imageOf.bookImage);
-    console.log('booksImages: ', booksImages);
     const booksList = document.querySelector(select.containerOf.booksList);
-    console.log('booksList: ', booksList);
+    
     const event = 'dblclick';
     booksList.addEventListener(event, function (event) {
       event.preventDefault();
       if (event.target.offsetParent.classList.contains('book__image')) {
 
-        //for (let bookImage of booksImages) {
-        //bookImage = document.querySelector(select.imageOf.bookImage);
-        // console.log('bookImage: ', bookImage);
+        
         let id = event.target.offsetParent.getAttribute('data-id');
         if (!favoriteBooks.includes(id)) {
           event.target.offsetParent.classList.add(classNames.bookCart.imageFavorite);
@@ -88,18 +78,18 @@
           favoriteBooks.splice(indexOfId, 1);
         }
 
-        console.log('favoriteBooks: ', favoriteBooks);
+
 
       }
 
     });
     const filter = document.querySelector('.filters');
-    console.log(filter);
+    
     filter.addEventListener('change', function (event) {
       event.preventDefault();
       const value = event.target.value;
       if (event.target.tagName == 'INPUT' && event.target.type == 'checkbox' && event.target.name == 'filter') {
-        console.log(value);
+       
         if (!event.target.classList.contains('checked') == true) {
           event.target.classList.add(classNames.bookCart.checkedClass);
           filters.push(value);
@@ -112,7 +102,7 @@
 
         }
         filterBooks(filters);
-        console.log(filters);
+
       }
 
     });
