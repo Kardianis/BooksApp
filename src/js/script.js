@@ -131,7 +131,7 @@
 
   }
 
+  
   render();
-  //getElements();
   initActions();
 }
